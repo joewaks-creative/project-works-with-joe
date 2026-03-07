@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Heritage - IBM-Style Learning Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Digital Heritage</span>
+            </div>
+
+            <div class="nav-menu">
+                <a href="#hero" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#modules" class="nav-link">
+                    <i class="fas fa-book-open"></i>
+                    <span>Modules</span>
+                </a>
+                <a href="#progress" class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Progress</span>
+                </a>
+                <a href="#about" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Master Digital Skills Through Ghanaian Heritage</h1>
+                <p class="hero-subtitle">Learn WhatsApp, Mobile Money, and online safety using the wisdom of Adinkra symbols - where tradition meets technology</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number" id="hero-progress">1</div>
+                        <div class="stat-label">Modules Done</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="hero-percentage">20%</div>
+                        <div class="stat-label">Complete</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">Free</div>
+                        <div class="stat-label">Access</div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="document.querySelector('.modules-grid').scrollIntoView({behavior: 'smooth'})">Start Learning</button>
+                    <button class="btn btn-secondary" onclick="startLesson('gye-nyame')">Try First Module</button>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-adinkra">
+                    <div class="adinkra-large">✥</div>
+                    <div class="adinkra-text">Gye Nyame</div>
+                    <div class="adinkra-meaning">Except God</div>
+                </div>
+                <div class="hero-decoration">
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-circle"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="var(--primary)"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="var(--primary)"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="var(--primary)"></path>
+            </svg>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <div class="course-overview" id="progress">
+            <h2>Course Overview</h2>
+            <p>This course bridges traditional Ghanaian culture with modern digital technology, using Adinkra symbols to teach essential digital literacy skills for WhatsApp, Mobile Money, and online safety.</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="course-progress" style="width: 20%;"></div>
+            </div>
+            <p><strong>Progress:</strong> <span id="progress-text">1 of 5 modules completed</span></p>
+        </div>
+
+        <div class="modules-grid" id="modules">
+            <div class="module-card completed" onclick="startLesson('gye-nyame')">
+                <div class="module-header">
+                    <div class="adinkra-icon">✥</div>
+                    <div>
+                        <h3 class="module-title">Module 1: Cybersecurity & Data Privacy</h3>
+                        <p class="module-subtitle">Gye Nyame (Except God)</p>
+                    </div>
+                </div>
+                <p class="module-description">Learn to protect your digital life like God's protection over all creation.</p>
+                <p class="module-status">✓ Completed</p>
+            </div>
+
+            <div class="module-card" onclick="startLesson('sankofa')">
+                <div class="module-header">
+                    <div class="adinkra-icon">↺</div>
+                    <div>
+                        <h3 class="module-title">Module 2: Data Backup & Recovery</h3>
+                        <p class="module-subtitle">Sankofa (Go Back and Get It)</p>
+                    </div>
+                </div>
+                <p class="module-description">Never lose your important data - learn to back it up safely.</p>
+                <p class="module-status">Available</p>
+            </div>
+
+            <div class="module-card" onclick="startLesson('akasa')">
+                <div class="module-header">
+                    <div class="adinkra-icon">👐</div>
+                    <div>
+                        <h3 class="module-title">Module 3: Internet Connectivity</h3>
+                        <p class="module-subtitle">Akasa (The Hand of God)</p>
+                    </div>
+                </div>
+                <p class="module-description">Connect to the digital world safely and manage your data usage.</p>
+                <p class="module-status">Available</p>
+            </div>
+
+            <div class="module-card" onclick="startLesson('adwo')">
+                <div class="module-header">
+                    <div class="adinkra-icon">☮</div>
+                    <div>
+                        <h3 class="module-title">Module 4: Safe Browsing</h3>
+                        <p class="module-subtitle">Adwo (Peace)</p>
+                    </div>
+                </div>
+                <p class="module-description">Browse the internet peacefully without threats or scams.</p>
+                <p class="module-status">Available</p>
+            </div>
+
+            <div class="module-card" onclick="startLesson('nkonsonkonson')">
+                <div class="module-header">
+                    <div class="adinkra-icon">⛓</div>
+                    <div>
+                        <h3 class="module-title">Module 5: Social Networking</h3>
+                        <p class="module-subtitle">Nkonsonkonson (Chain Link)</p>
+                    </div>
+                </div>
+                <p class="module-description">Build strong connections online while protecting your privacy.</p>
+                <p class="module-status">Available</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Instructor Section -->
+        <div class="course-overview" id="about">
+            <h2><i class="fas fa-user-graduate"></i> Meet Your Instructor</h2>
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: center;">
+                <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">👨‍🏫</div>
+                <div>
+                    <h3 style="color: var(--primary); margin: 0;">Dr. Kofi Adinkra</h3>
+                    <p style="margin: 0.5rem 0; color: var(--text-secondary);">Cultural Heritage Expert & Digital Literacy Specialist</p>
+                    <p style="margin: 0; font-size: 0.9rem;">With over 15 years of experience in Ghanaian cultural studies and digital education, Dr. Adinkra brings traditional wisdom to modern technology learning.</p>
+                    <p style="margin: 0.25rem 0; font-size: 0.85rem;"><i class="fas fa-envelope"></i> <a href="mailto:info@digitalheritage.org">info@digitalheritage.org</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="course-overview">
+            <h2><i class="fas fa-comments"></i> What Our Learners Say</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div style="background: var(--bg-lighter); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
+                    <p style="font-style: italic; margin-bottom: 1rem;">"This course helped me understand WhatsApp security using symbols from my own culture. Now I feel confident protecting my mobile money!"</p>
+                    <p style="font-weight: 600; color: var(--primary); margin: 0;"><i class="fas fa-user"></i> Ama, Market Trader, Accra</p>
+                </div>
+                <div style="background: var(--bg-lighter); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
+                    <p style="font-style: italic; margin-bottom: 1rem;">"The Adinkra symbols made learning fun and meaningful. I never thought digital literacy could connect to my heritage."</p>
+                    <p style="font-weight: 600; color: var(--primary); margin: 0;"><i class="fas fa-user"></i> Kwesi, Senior Citizen, Kumasi</p>
+                </div>
+                <div style="background: var(--bg-lighter); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
+                    <p style="font-style: italic; margin-bottom: 1rem;">"Learning about data backup through Sankofa was brilliant. Now I regularly back up my family photos."</p>
+                    <p style="font-weight: 600; color: var(--primary); margin: 0;"><i class="fas fa-user"></i> Naa, Teacher, Tema</p>
+        </div>
+    </div>
+
+    <!-- Tutorial Video -->
+    <div class="course-overview" style="margin-top:2rem; text-align:center;">
+        <h2><i class="fas fa-video"></i> Tutorial Video</h2>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                    frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="course-overview" style="margin-top:2rem;">
+        <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+        <form id="contact-form" style="display:grid;gap:1rem;max-width:400px;">
+            <input type="text" name="name" placeholder="Your Name" required style="padding:0.75rem;border:1px solid var(--border);border-radius:6px;">
+            <input type="email" name="email" placeholder="Your Email" required style="padding:0.75rem;border:1px solid var(--border);border-radius:6px;">
+            <textarea name="message" placeholder="Message" rows="4" required style="padding:0.75rem;border:1px solid var(--border);border-radius:6px;"></textarea>
+            <button type="submit" class="btn btn-primary" style="justify-self:start;"><i class="fas fa-paper-plane"></i> Send</button>
+        </form>
+    </div>
+
+    <div class="lesson-modal" id="lesson-modal">
+        <div class="lesson-content">
+            <div class="lesson-header">
+                <div class="lesson-progress">
+                    <div class="progress-step" id="step-1">1</div>
+                    <div class="progress-step" id="step-2">2</div>
+                    <div class="progress-step" id="step-3">3</div>
+                    <div class="progress-step" id="step-4">4</div>
+                    <div class="progress-step" id="step-5">5</div>
+                </div>
+                <button class="close-modal" onclick="closeLesson()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <h2 id="lesson-title">Lesson Title</h2>
+
+            <div class="lesson-navigation">
+                <button class="nav-btn" id="prev-step" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <span class="step-indicator" id="step-indicator">Step 1 of 5</span>
+                <button class="nav-btn" id="next-step">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div id="lesson-body">
+                <!-- Lesson content will be loaded here -->
+            </div>
+
+            <div class="quiz-section" id="quiz-section" style="display: none;">
+                <h3><i class="fas fa-question-circle"></i> Knowledge Check</h3>
+                <div class="quiz-question" id="quiz-question"></div>
+                <div class="quiz-options" id="quiz-options"></div>
+                <button class="btn btn-primary" id="submit-quiz">
+                    <i class="fas fa-check"></i> Submit Answer
+                </button>
+                <div id="quiz-feedback" style="margin-top: 1rem;"></div>
+            </div>
+
+            <div class="lesson-actions">
+                <button class="btn btn-secondary" onclick="closeLesson()">
+                    <i class="fas fa-times"></i> Close
+                </button>
+                <button class="btn btn-success" id="complete-lesson" style="display: none;">
+                    <i class="fas fa-trophy"></i> Complete Module
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Digital Heritage - Bridging Culture & Technology</p>
+        <p>© 2026 | Low-Data PWA | No Account Required</p>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
