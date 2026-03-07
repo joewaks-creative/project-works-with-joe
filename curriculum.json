@@ -1,0 +1,58 @@
+{
+  "curriculum": {
+    "title": "Digital Heritage Curriculum",
+    "description": "Using Adinkra symbols to teach digital literacy in Ghana",
+    "modules": [
+      {
+        "symbol": "Gye Nyame",
+        "meaning": "Except God",
+        "topic": "Cybersecurity & Data Privacy",
+        "lessons": [
+          "Understanding passwords and PINs",
+          "Protecting personal information",
+          "Safe use of WhatsApp and Mobile Money"
+        ]
+      },
+      {
+        "symbol": "Sankofa",
+        "meaning": "Go back and get it",
+        "topic": "Data Backup & Recovery",
+        "lessons": [
+          "Importance of backing up data",
+          "Using cloud storage safely",
+          "Recovering lost information"
+        ]
+      },
+      {
+        "symbol": "Akasa",
+        "meaning": "The hand of God",
+        "topic": "Internet Connectivity",
+        "lessons": [
+          "What is the internet?",
+          "Connecting devices",
+          "Managing data usage"
+        ]
+      },
+      {
+        "symbol": "Adwo",
+        "meaning": "Peace",
+        "topic": "Safe Browsing",
+        "lessons": [
+          "Recognizing safe websites",
+          "Avoiding scams",
+          "Online etiquette"
+        ]
+      },
+      {
+        "symbol": "Nkonsonkonson",
+        "meaning": "Chain link",
+        "topic": "Social Networking",
+        "lessons": [
+          "Building connections online",
+          "Privacy settings on social media",
+          "Sharing responsibly"
+        ]
+      }
+    ]
+  }
+}
