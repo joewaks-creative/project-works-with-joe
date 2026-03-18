@@ -3,56 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Digital Heritage </title>
-    <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
-    <!-- Font Awesome for icons -->
+    <meta name="description" content="Master digital skills through Ghanaian heritage - WhatsApp, Mobile Money & online safety using Adinkra symbols">
+    <meta name="theme-color" content="#0a0f1a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Digital Heritage">
+    
+    <title>Digital Heritage - Ghana Digital Literacy</title>
+    
+    <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="./manifest.json">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
-<meta name="theme-color" content="#4CAF50">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Learn">
+    <link rel="icon" type="image/png" href="images/icon-192.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-theme="dark">
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-brand">
                 <i class="fas fa-graduation-cap"></i>
                 <span>Digital Heritage</span>
             </div>
-
-            <div class="nav-menu">
-                <a href="#hero" class="nav-link active">
+            
+            <div class="nav-menu" role="menubar">
+                <a href="#hero" class="nav-link active" role="menuitem" aria-current="page">
                     <i class="fas fa-home"></i>
                     <span>Home</span>
                 </a>
-                <a href="#modules" class="nav-link">
+                <a href="#videos" class="nav-link" role="menuitem">
+                    <i class="fas fa-video"></i>
+                    <span>Videos</span>
+                </a>
+                <a href="#modules" class="nav-link" role="menuitem">
                     <i class="fas fa-book-open"></i>
                     <span>Modules</span>
                 </a>
-                <a href="#progress" class="nav-link">
+                <a href="#dashboard" class="nav-link" role="menuitem">
                     <i class="fas fa-chart-line"></i>
                     <span>Progress</span>
                 </a>
-                <a href="#dashboard" class="nav-link">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a href="#about" class="nav-link">
+                <a href="#about" class="nav-link" role="menuitem">
                     <i class="fas fa-info-circle"></i>
                     <span>About</span>
                 </a>
             </div>
-
+            
             <div class="nav-actions">
-                <button class="theme-toggle" id="theme-toggle">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="menu-toggle" id="menu-toggle">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -63,8 +69,16 @@
     <section class="hero" id="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="hero-title">Master Digital Skills Through Ghanaian Heritage</h1>
-                <p class="hero-subtitle">Learn WhatsApp, Mobile Money, and online safety using the wisdom of Adinkra symbols - where tradition meets technology</p>
+                <div class="hero-badge">
+                    <i class="fas fa-sparkles"></i>
+                    Free Digital Literacy Course
+                </div>
+                <h1 class="hero-title">
+                    Master Digital Skills Through <span>Ghanaian Heritage</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Learn WhatsApp, Mobile Money, and online safety using the wisdom of Adinkra symbols - where tradition meets technology
+                </p>
                 
                 <div class="hero-stats">
                     <div class="stat">
@@ -82,341 +96,327 @@
                 </div>
                 
                 <div class="hero-actions">
-                    <button class="btn btn-primary" onclick="document.querySelector('.modules-grid').scrollIntoView({behavior: 'smooth'})">Start Learning</button>
-                    <button class="btn btn-secondary" onclick="startLesson('gye-nyame')">Try First Module</button>
+                    <button class="btn btn-primary" onclick="document.querySelector('.modules-grid').scrollIntoView({behavior: 'smooth'})">
+                        <i class="fas fa-rocket"></i>
+                        Start Learning
+                    </button>
+                    <button class="btn btn-secondary" onclick="startLesson('gye-nyame')">
+                        <i class="fas fa-play"></i>
+                        Try First Module
+                    </button>
                 </div>
             </div>
             
             <div class="hero-visual">
                 <div class="hero-adinkra">
-                    <div class="adinkra-large"><img src="images/joe_added.png" alt=""></div>
+                    <div class="adinkra-large">
+                        <img src="images/joe_added.png" alt="Gye Nyame Adinkra Symbol">
+                    </div>
                     <div class="adinkra-text">Gye Nyame</div>
-                    <div class="adinkra-meaning">Except God</div>
-                </div>
-                <div class="hero-decoration">
-                    <div class="decoration-circle"></div>
-                    <div class="decoration-circle"></div>
-                    <div class="decoration-circle"></div>
+                    <div class="adinkra-meaning">"Except God" - Supreme Protection</div>
                 </div>
             </div>
         </div>
-        
-        <div class="hero-wave">
-            <!-- image replacing svg wave; add your own file under images/ -->
-            <img src="" alt="Adinkra Symbol" class="hero-symbol-image" />
-        </div>
     </section>
 
-    <div class="main-content">
-        <div class="course-overview" id="progress">
-            <h2>Course Overview</h2>
+    <!-- Main Content -->
+    <main class="main-content" id="main-content" role="main">
+        
+        <!-- Course Overview -->
+        <section class="course-overview" id="progress">
+            <h2><i class="fas fa-graduation-cap"></i> Course Overview</h2>
             <p>This course bridges traditional Ghanaian culture with modern digital technology, using Adinkra symbols to teach essential digital literacy skills for WhatsApp, Mobile Money, and online safety.</p>
             <div class="progress-bar">
                 <div class="progress-fill" id="course-progress" style="width: 0%;"></div>
             </div>
-            <p><strong>Progress:</strong> <span id="progress-text">0 of 6 modules completed</span></p>
-        </div>
+            <p style="color: var(--text-secondary);"><strong style="color: var(--text-primary);">Progress:</strong> <span id="progress-text">0 of 6 modules completed</span></p>
+        </section>
 
-        <div class="modules-grid" id="modules">
-            <div class="module-card completed" onclick="startLesson('gye-nyame')">
-                <div class="module-header">
-                    <div class="adinkra-icon"><img style="width: 100px; height: auto;" src="images/joe_added.png" alt=""></div>
-                    <div>
-                        <h3 class="module-title">Module 1: Cybersecurity & Data Privacy</h3>
-                        <p class="module-subtitle">Gye Nyame (Except God)</p>
-                    </div>
-                </div>
-                <p class="module-description">Learn to protect your digital life like God's protection over all creation.</p>
-                <p class="module-status">✓ Completed</p>
-                <button class="btn btn-primary" onclick="event.stopPropagation(); startLesson('gye-nyame')">Start Module</button>
-            </div>
-
-            <div class="module-card" onclick="startLesson('sankofa')">
-                <div class="module-header">
-                    <div class="adinkra-icon"><img style="width: 100px; height: auto;" src="images/san1.png" alt=""></div>
-                    <div>
-                        <h3 class="module-title">Module 2: Data Backup & Recovery</h3>
-                        <p class="module-subtitle">Sankofa (Go Back and Get It)</p>
-                    </div>
-                </div>
-                <p class="module-description">Never lose your important data - learn to back it up safely.</p>
-                <p class="module-status">Available</p>
-                <button class="btn btn-primary" onclick="event.stopPropagation(); startLesson('sankofa')">Start Module</button>
-            </div>
-
-            <div class="module-card" onclick="startLesson('akasa')">
-                <div class="module-header">
-                    <div class="adinkra-icon"><img style="width: 100px; height: auto;" src="images/san1.png" alt=""></div>
-                    <div>
-                        <h3 class="module-title">Module 3: Internet Connectivity</h3>
-                        <p class="module-subtitle">Akasa (The Hand of God)</p>
-                    </div>
-                </div>
-                <p class="module-description">Connect to the digital world safely and manage your data usage.</p>
-                <p class="module-status">Available</p>
-                <button class="btn btn-primary" onclick="event.stopPropagation(); startLesson('akasa')">Start Module</button>
-            </div>
-
-            <div class="module-card" onclick="startLesson('adwo')">
-                <div class="module-header">
-                    <div class="adinkra-icon"><img style="width: 100px; height: auto;" src="images/adwo-medium copy.png" alt=""></div>
-                    <div>
-                        <h3 class="module-title">Module 4: Safe Browsing</h3>
-                        <p class="module-subtitle">Adwo (Peace)</p>
-                    </div>
-                </div>
-                <p class="module-description">Browse the internet peacefully without threats or scams.</p>
-                <p class="module-status">Available</p>
-                <button class="btn btn-primary" onclick="event.stopPropagation(); startLesson('adwo')">Start Module</button>
-            </div>
-
-            <div class="module-card" onclick="startLesson('nkonsonkonson')">
-                <div class="module-header">
-                    <div class="adinkra-icon"><img style="width: 100px; height: auto;" src="images/san1.png" alt=""></div>
-                    <div>
-                        <h3 class="module-title">Module 5: Social Networking</h3>
-                        <p class="module-subtitle">Nkonsonkonson (Chain Link)</p>
-                    </div>
-                </div>
-                <p class="module-description">Build strong connections online while protecting your privacy.</p>
-                <p class="module-status">Available</p>
-                <button class="btn btn-primary" onclick="event.stopPropagation(); startLesson('nkonsonkonson')">Start Module</button>
-            </div>
-
-            <div class="module-card" onclick="startLesson('mtn-money')">
-                <div class="module-header">
-                    <div class="adinkra-icon"><img style="width: 100px; height: auto;" src="images/mtn.png" alt=""></div>
-                    <div>
-                        <h3 class="module-title">Module 6: MTN Mobile Money</h3>
-                        <p class="module-subtitle">Sika Dwa (Money Pillar)</p>
-                    </div>
-                </div>
-                <p class="module-description">Securely use MTN Mobile Money and avoid common scams.</p>
-                <p class="module-status">Available</p>
-                <button class="btn btn-primary" onclick="event.stopPropagation(); startLesson('mtn-money')">Start Module</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Course Instructor Section -->
-        <div class="course-overview" id="about">
-            <h2><i class="fas fa-user-graduate"></i> Meet Your Instructor</h2>
-            <div style="display: grid; grid-template-columns: auto  1fr ; gap: 1.5rem; align-items: center;">
-                          <div style="background: var(--bg-lighter); padding: 1.5rem; border-radius: 8px;;">
-
-                <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">👨‍🏫</div>
-                <div>
-                    <h3 style="color: var(--primary); margin: 0;">Dr. Kofi Adinkra</h3>
-                    <p style="margin: 0.5rem 0; color: var(--text-secondary);">Cultural Heritage Expert & Digital Literacy Specialist</p>
-                    <p style="margin: 0; font-size: 0.9rem;">With over 15 years of experience in Ghanaian cultural studies and digital education, Dr. Adinkra brings traditional wisdom to modern technology learning.</p>
-                    <p style="margin: 0.25rem 0; font-size: 0.85rem;"><i class="fas fa-envelope"></i> <a href="mailto:info@digitalheritage.org">info@digitalheritage.org</a></p>
+        <!-- Videos Section -->
+        <section class="videos-section" id="videos">
+            <div class="container">
+                <h2><i class="fas fa-video"></i> Learning Videos</h2>
+                <p class="videos-intro">Master digital skills through interactive video lessons</p>
+                
+                <div class="videos-grid">
+                    <article class="video-card">
+                        <div class="video-wrapper">
+                            <video controls preload="metadata" aria-label="Digital Literacy Tutorial Part 1">
+                                <source src="offline vidoes/WhatsApp Video 2026-03-18 at 5.06.55 PM.mp4" type="video/mp4">
+                            </video>
+                            
+                        </div>
+                        <div class="video-info">
+                            <span class="video-number">1</span>
+                            <h3>Mobile Money Safety</h3>
+                            <p>Learn the fundamentals of digital literacy and essential tech skills for everyday life.</p>
+                            <div class="video-meta">
+                                <span class="video-category"><i class="fas fa-play-circle"></i> Beginner</span>
+                                <span class="video-duration"><i class="fas fa-clock"></i> 1 min</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="video-card">
+                        <div class="video-wrapper">
+                            <video controls preload="metadata" aria-label="Digital Literacy Tutorial Part 2">
+                                <source src="offline vidoes/WhatsApp Video 2026-03-18 at 5.06.57 PM.mp4" type="video/mp4">
+                            </video>
+                         
+                        </div>
+                        <div class="video-info">
+                            <span class="video-number">2</span>
+                            <h3>WhatsApp & Mobile Money Safety</h3>
+                            <p>Protect your mobile transactions and secure your WhatsApp account from threats.</p>
+                            <div class="video-meta">
+                                <span class="video-category"><i class="fas fa-shield-alt"></i> Security</span>
+                                <span class="video-duration"><i class="fas fa-clock"></i> 2 min</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="video-card">
+                        <div class="video-wrapper">
+                            <video controls preload="metadata" aria-label="Digital Literacy Tutorial Part 3">
+                                <source src="offline vidoes/WhatsApp Video 2026-03-18 at 5.06.52 PM.mp4" type="video/mp4">
+                            </video>
+                            
+                        </div>
+                        <div class="video-info">
+                            <span class="video-number">3</span>
+                            <h3>Advanced Online Security</h3>
+                            <p>Master advanced protection techniques for safe online banking and shopping.</p>
+                            <div class="video-meta">
+                                <span class="video-category"><i class="fas fa-lock"></i> Advanced</span>
+                                <span class="video-duration"><i class="fas fa-clock"></i> 25 min</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
-        <!-- <div style="background: var(--bg-lighter); padding: 1.5rem; border-radius: 8px;;">
-                <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">👨‍🏫</div>
-                <div>
-                    <h3 style="color: var(--primary); margin: 0;">Dr. Kofi Adinkra</h3>
-                    <p style="margin: 0.5rem 0; color: var(--text-secondary);">Cultural Heritage Expert & Digital Literacy Specialist</p>
-                    <p style="margin: 0; font-size: 0.9rem;">With over 15 years of experience in Ghanaian cultural studies and digital education, Dr. Adinkra brings traditional wisdom to modern technology learning.</p>
-                    <p style="margin: 0.25rem 0; font-size: 0.85rem;"><i class="fas fa-envelope"></i> <a href="mailto:info@digitalheritage.org">info@digitalheritage.org</a></p>
-                </div>
-            </div> -->
-       
-        </div>
-        </div>
+        </section>
 
-        <!-- Testimonials Section -->
-        <div class="course-overview">
-            <h2><i class="fas fa-comments"></i> What Our Learners Say</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-                <div style="background: var(--bg-lighter); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                    <p style="font-style: italic; margin-bottom: 1rem;">"This course helped me understand WhatsApp security using symbols from my own culture. Now I feel confident protecting my mobile money!"</p>
-                    <p style="font-weight: 600; color: var(--primary); margin: 0;"><i class="fas fa-user"></i> Ama, Market Trader, Accra</p>
-                </div>
-                <div style="background: var(--bg-lighter); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                    <p style="font-style: italic; margin-bottom: 1rem;">"The Adinkra symbols made learning fun and meaningful. I never thought digital literacy could connect to my heritage."</p>
-                    <p style="font-weight: 600; color: var(--primary); margin: 0;"><i class="fas fa-user"></i> Kwesi, Senior Citizen, Kumasi</p>
-                </div>
-                <div style="background: var(--bg-lighter); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                    <p style="font-style: italic; margin-bottom: 1rem;">"Learning about data backup through Sankofa was brilliant. Now I regularly back up my family photos."</p>
-                    <p style="font-weight: 600; color: var(--primary); margin: 0;"><i class="fas fa-user"></i> Naa, Teacher, Tema</p>
-        </div>
+        <!-- Team Section -->
+        <section class="course-overview" style="margin-top: 40px;">
+            <h2><i class="fas fa-users"></i> Our Team</h2>
+            <p>Meet the dedicated team behind Digital Heritage</p>
+            <div style="text-align: center; margin-top: 24px;">
+                <img src="team/WhatsApp Image 2026-03-18 at 5.06.53 PM.jpeg" alt="Our Team" style="max-width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Tutorial Video -->
-    <div class="course-overview" style="margin-top:2rem; text-align:center;">
-        <h2><i class="fas fa-video"></i> Tutorial Video</h2>
-        <div style="position:relative;padding-bottom:46.25%;height:0;overflow:hidden;max-width:100%;">
-            <!-- <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-                    frameborder="0" allowfullscreen></iframe> -->
-                    <iframe   style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-                    frameborder="0" allowfullscreen src="https://www.youtube.com/embed/Qdlggq6UEL8?si=0MhftyJFSxrSnBD7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-    </div>
-
-    <!-- IBM-Style Dashboard Section -->
-    <div class="dashboard-section" id="dashboard">
-        <h2><i class="fas fa-tachometer-alt"></i> Learning Analytics Dashboard</h2>
-        
-        <div class="dashboard-grid">
-            <!-- Learning Progress Card -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Learning Progress</h3>
-                </div>
-                <div class="card-content">
-                    <div class="progress-circle">
-                        <svg width="120" height="120" viewBox="0 0 120 120">
-                            <circle cx="60" cy="60" r="50" stroke="var(--border)" stroke-width="8" fill="none"/>
-                            <circle cx="60" cy="60" r="50" stroke="var(--primary)" stroke-width="8" fill="none" 
-                                    stroke-dasharray="314" stroke-dashoffset="0" id="progress-circle"/>
-                        </svg>
-                        <div class="progress-text">
-                            <span id="dashboard-progress">0%</span>
+        <!-- Modules Grid -->
+        <section id="modules">
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 40px;">
+                <i class="fas fa-book-open" style="color: var(--primary); margin-right: 12px;"></i>
+                Learning Modules
+            </h2>
+            <div class="modules-grid">
+                <div class="module-card completed" data-module="gye-nyame" onclick="startLesson('gye-nyame')">
+                    <div class="module-header">
+                        <div class="adinkra-icon">
+                            <img src="images/joe_added.png" alt="">
+                        </div>
+                        <div>
+                            <h3 class="module-title">Module 1: Cybersecurity & Data Privacy</h3>
+                            <p class="module-subtitle">Gye Nyame (Except God)</p>
                         </div>
                     </div>
-                    <p id="dashboard-modules">0 of 6 modules completed</p>
+                    <p class="module-description">Learn to protect your digital life like God's protection over all creation.</p>
+                    <p class="module-status">✓ Completed</p>
+                    <button class="btn btn-primary" data-module="gye-nyame" onclick="event.stopPropagation(); startLesson('gye-nyame')">Start Module</button>
+                </div>
+
+                <div class="module-card" data-module="sankofa" onclick="startLesson('sankofa')">
+                    <div class="module-header">
+                        <div class="adinkra-icon">
+                            <img src="images/san1.png" alt="">
+                        </div>
+                        <div>
+                            <h3 class="module-title">Module 2: Data Backup & Recovery</h3>
+                            <p class="module-subtitle">Sankofa (Go Back and Get It)</p>
+                        </div>
+                    </div>
+                    <p class="module-description">Never lose your important data - learn to back it up safely.</p>
+                    <p class="module-status">Available</p>
+                    <button class="btn btn-primary" data-module="sankofa" onclick="event.stopPropagation(); startLesson('sankofa')">Start Module</button>
+                </div>
+
+                <div class="module-card" data-module="akasa" onclick="startLesson('akasa')">
+                    <div class="module-header">
+                        <div class="adinkra-icon">
+                            <img src="images/san1.png" alt="">
+                        </div>
+                        <div>
+                            <h3 class="module-title">Module 3: Internet Connectivity</h3>
+                            <p class="module-subtitle">Akasa (The Hand of God)</p>
+                        </div>
+                    </div>
+                    <p class="module-description">Connect to the digital world safely and manage your data usage.</p>
+                    <p class="module-status">Available</p>
+                    <button class="btn btn-primary" data-module="akasa" onclick="event.stopPropagation(); startLesson('akasa')">Start Module</button>
+                </div>
+
+                <div class="module-card" data-module="adwo" onclick="startLesson('adwo')">
+                    <div class="module-header">
+                        <div class="adinkra-icon">
+                            <img src="images/adwo-medium copy.png" alt="">
+                        </div>
+                        <div>
+                            <h3 class="module-title">Module 4: Safe Browsing</h3>
+                            <p class="module-subtitle">Adwo (Peace)</p>
+                        </div>
+                    </div>
+                    <p class="module-description">Browse the internet peacefully without threats or scams.</p>
+                    <p class="module-status">Available</p>
+                    <button class="btn btn-primary" data-module="adwo" onclick="event.stopPropagation(); startLesson('adwo')">Start Module</button>
+                </div>
+
+                <div class="module-card" data-module="nkonsonkonson" onclick="startLesson('nkonsonkonson')">
+                    <div class="module-header">
+                        <div class="adinkra-icon">
+                            <img src="images/san1.png" alt="">
+                        </div>
+                        <div>
+                            <h3 class="module-title">Module 5: Social Networking</h3>
+                            <p class="module-subtitle">Nkonsonkonson (Chain Link)</p>
+                        </div>
+                    </div>
+                    <p class="module-description">Build strong connections online while protecting your privacy.</p>
+                    <p class="module-status">Available</p>
+                    <button class="btn btn-primary" data-module="nkonsonkonson" onclick="event.stopPropagation(); startLesson('nkonsonkonson')">Start Module</button>
+                </div>
+
+                <div class="module-card" data-module="mtn-money" onclick="startLesson('mtn-money')">
+                    <div class="module-header">
+                        <div class="adinkra-icon">
+                            <img src="images/mtn.png" alt="">
+                        </div>
+                        <div>
+                            <h3 class="module-title">Module 6: MTN Mobile Money</h3>
+                            <p class="module-subtitle">Sika Dwa (Money Pillar)</p>
+                        </div>
+                    </div>
+                    <p class="module-description">Securely use MTN Mobile Money and avoid common scams.</p>
+                    <p class="module-status">Available</p>
+                    <button class="btn btn-primary" data-module="mtn-money" onclick="event.stopPropagation(); startLesson('mtn-money')">Start Module</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section" id="dashboard">
+        <h2><i class="fas fa-chart-line"></i> Learning Analytics Dashboard</h2>
+        
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Learning Progress</h3>
+                </div>
+                <div style="text-align: center; padding: 20px 0;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--primary);" id="dashboard-progress">0%</div>
+                    <p style="color: var(--text-secondary);" id="dashboard-modules">0 of 6 modules completed</p>
                 </div>
             </div>
 
-            <!-- Time Spent Card -->
             <div class="dashboard-card">
                 <div class="card-header">
                     <i class="fas fa-clock"></i>
                     <h3>Time Invested</h3>
                 </div>
-                <div class="card-content">
-                    <div class="time-display">
+                <div style="text-align: center; padding: 20px 0;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--secondary);">
                         <span id="total-time">0</span>
-                        <span class="time-unit">minutes</span>
+                        <span style="font-size: 1rem; color: var(--text-muted);">min</span>
                     </div>
-                    <p>Average session: <span id="avg-session">0</span> min</p>
+                    <p style="color: var(--text-secondary);">Total learning time</p>
                 </div>
             </div>
 
-            <!-- Achievements Card -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <i class="fas fa-trophy"></i>
-                    <h3>Achievements</h3>
-                </div>
-                <div class="card-content">
-                    <div class="achievements-list" id="achievements-list">
-                        <div class="achievement-item locked">
-                            <i class="fas fa-lock"></i>
-                            <span>First Steps</span>
-                        </div>
-                        <div class="achievement-item locked">
-                            <i class="fas fa-lock"></i>
-                            <span>Digital Guardian</span>
-                        </div>
-                        <div class="achievement-item locked">
-                            <i class="fas fa-lock"></i>
-                            <span>Cultural Bridge</span>
-                        </div>
-                        <div class="achievement-item locked">
-                            <i class="fas fa-lock"></i>
-                            <span>Master Learner</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Skills Radar -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <i class="fas fa-radar"></i>
-                    <h3>Skills Assessment</h3>
-                </div>
-                <div class="card-content">
-                    <div class="skills-radar">
-                        <div class="skill-item">
-                            <span>Cybersecurity</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" id="skill-cybersecurity" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Data Management</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" id="skill-datamgmt" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Online Safety</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" id="skill-safety" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Digital Finance</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" id="skill-finance" style="width: 0%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Learning Streak -->
             <div class="dashboard-card">
                 <div class="card-header">
                     <i class="fas fa-fire"></i>
                     <h3>Learning Streak</h3>
                 </div>
-                <div class="card-content">
-                    <div class="streak-display">
+                <div style="text-align: center; padding: 20px 0;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #f59e0b;">
                         <span id="current-streak">0</span>
-                        <span class="streak-unit">days</span>
+                        <span style="font-size: 1rem; color: var(--text-muted);">days</span>
                     </div>
-                    <p>Keep learning daily!</p>
-                    <div class="streak-calendar" id="streak-calendar">
-                        <!-- Calendar will be populated by JS -->
-                    </div>
+                    <p style="color: var(--text-secondary);">Keep learning daily!</p>
                 </div>
             </div>
 
-            <!-- Quick Actions -->
             <div class="dashboard-card">
                 <div class="card-header">
                     <i class="fas fa-bolt"></i>
                     <h3>Quick Actions</h3>
                 </div>
-                <div class="card-content">
-                    <div class="quick-actions">
-                        <button class="action-btn" onclick="exportProgress()">
-                            <i class="fas fa-download"></i>
-                            Export Progress
-                        </button>
-                        <button class="action-btn" onclick="resetProgress()">
-                            <i class="fas fa-undo"></i>
-                            Reset Progress
-                        </button>
-                        <button class="action-btn" onclick="shareProgress()">
-                            <i class="fas fa-share"></i>
-                            Share Progress
-                        </button>
-                    </div>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="exportProgress()" style="justify-content: center;">
+                        <i class="fas fa-download"></i> Export Progress
+                    </button>
+                    <button class="btn btn-secondary" onclick="shareProgress()" style="justify-content: center;">
+                        <i class="fas fa-share"></i> Share Progress
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Contact Section -->
-    <div class="course-overview" style="margin-top:2rem;">
-        <h2><i class="fas fa-envelope"></i> Contact Us</h2>
-        <form id="contact-form" style="display:grid;gap:1rem;max-width:400px;">
-            <input type="text" name="name" placeholder="Your Name" required style="padding:0.75rem;border:1px solid var(--border);border-radius:6px;">
-            <input type="email" name="email" placeholder="Your Email" required style="padding:0.75rem;border:1px solid var(--border);border-radius:6px;">
-            <textarea name="message" placeholder="Message" rows="4" required style="padding:0.75rem;border:1px solid var(--border);border-radius:6px;"></textarea>
-            <button type="submit" class="btn btn-primary" style="justify-self:start;"><i class="fas fa-paper-plane"></i> Send</button>
-        </form>
-    </div>
+    <!-- About Section -->
+    <main class="main-content" id="about">
+        <section class="course-overview">
+            <h2><i class="fas fa-user-graduate"></i> Meet Your Instructor</h2>
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center;">
+                <div style="width: 120px; height: 120px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; flex-shrink: 0;">
+                    👨‍🏫
+                </div>
+                <div>
+                    <h3 style="color: var(--primary); margin: 0 0 8px 0; font-size: 1.5rem;">Dr. Kofi Adinkra</h3>
+                    <p style="color: var(--text-secondary); margin: 0 0 12px 0;">Cultural Heritage Expert & Digital Literacy Specialist</p>
+                    <p style="color: var(--text-secondary); margin: 0 0 12px 0; line-height: 1.7;">With over 15 years of experience in Ghanaian cultural studies and digital education, Dr. Adinkra brings traditional wisdom to modern technology learning.</p>
+                    <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;"><i class="fas fa-envelope" style="margin-right: 8px;"></i> info@digitalheritage.org</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Testimonials -->
+        <section class="course-overview">
+            <h2><i class="fas fa-comments"></i> What Our Learners Say</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                <div style="background: var(--bg-elevated); padding: 24px; border-radius: var(--radius-lg); border-left: 4px solid var(--primary);">
+                    <p style="font-style: italic; margin-bottom: 16px; color: var(--text-secondary); line-height: 1.6;">"This course helped me understand WhatsApp security using symbols from my own culture. Now I feel confident protecting my mobile money!"</p>
+                    <p style="font-weight: 600; color: var(--primary); margin: 0;"><i class="fas fa-user" style="margin-right: 8px;"></i> Ama, Market Trader, Accra</p>
+                </div>
+                <div style="background: var(--bg-elevated); padding: 24px; border-radius: var(--radius-lg); border-left: 4px solid var(--primary);">
+                    <p style="font-style: italic; margin-bottom: 16px; color: var(--text-secondary); line-height: 1.6;">"The Adinkra symbols made learning fun and meaningful. I never thought digital literacy could connect to my heritage."</p>
+                    <p style="font-weight: 600; color: var(--primary); margin: 0;"><i class="fas fa-user" style="margin-right: 8px;"></i> Kwesi, Senior Citizen, Kumasi</p>
+                </div>
+                <div style="background: var(--bg-elevated); padding: 24px; border-radius: var(--radius-lg); border-left: 4px solid var(--primary);">
+                    <p style="font-style: italic; margin-bottom: 16px; color: var(--text-secondary); line-height: 1.6;">"Learning about data backup through Sankofa was brilliant. Now I regularly back up my family photos."</p>
+                    <p style="font-weight: 600; color: var(--primary); margin: 0;"><i class="fas fa-user" style="margin-right: 8px;"></i> Naa, Teacher, Tema</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="course-overview contact-section">
+            <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary" style="justify-content: center;">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Lesson Modal -->
     <div class="lesson-modal" id="lesson-modal">
         <div class="lesson-content">
             <div class="lesson-header">
@@ -434,44 +434,46 @@
 
             <h2 id="lesson-title">Lesson Title</h2>
 
-            <div class="lesson-navigation">
-                <button class="nav-btn" id="prev-step" disabled>
+            <div class="lesson-navigation" style="display: flex; justify-content: space-between; align-items: center; margin: 24px 0; padding: 16px; background: var(--bg-elevated); border-radius: var(--radius-md);">
+                <button class="btn btn-secondary" id="prev-step" disabled>
                     <i class="fas fa-chevron-left"></i> Previous
                 </button>
-                <span class="step-indicator" id="step-indicator">Step 1 of 5</span>
-                <button class="nav-btn" id="next-step">
+                <span style="color: var(--primary); font-weight: 600;" id="step-indicator">Step 1 of 5</span>
+                <button class="btn btn-primary" id="next-step">
                     Next <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
 
-            <div id="lesson-body">
-                <!-- Lesson content will be loaded here -->
-            </div>
+            <div id="lesson-body"></div>
 
-            <div class="quiz-section" id="quiz-section" style="display: none;">
+            <div class="quiz-section" id="quiz-section" style="display: none; background: var(--bg-elevated); padding: 24px; border-radius: var(--radius-lg); margin-top: 24px;">
                 <h3><i class="fas fa-question-circle"></i> Knowledge Check</h3>
                 <div id="quiz-questions"></div>
-                <button class="btn btn-primary" id="submit-quiz">
+                <button class="btn btn-primary" id="submit-quiz" style="margin-top: 20px;">
                     <i class="fas fa-check"></i> Submit Quiz
                 </button>
             </div>
 
-            <div class="lesson-actions">
+            <div class="lesson-actions" style="display: flex; justify-content: space-between; margin-top: 32px;">
                 <button class="btn btn-secondary" onclick="closeLesson()">
                     <i class="fas fa-times"></i> Close
                 </button>
-                <button class="btn btn-success" id="complete-lesson" style="display: none;">
+                <button class="btn btn-primary" id="take-quiz-btn" onclick="showQuiz()" style="background: var(--accent);">
+                    <i class="fas fa-question-circle"></i> Take Quiz
+                </button>
+                <button class="btn btn-primary" id="complete-lesson" style="display: none;">
                     <i class="fas fa-trophy"></i> Complete Module
                 </button>
             </div>
         </div>
     </div>
 
-    <div class="footer">
+    <!-- Footer -->
+    <footer class="footer">
         <p>Digital Heritage - Bridging Culture & Technology</p>
         <p>© 2026 | Low-Data PWA | No Account Required</p>
-    </div>
+    </footer>
 
-    <script src="js/app.js"></script>
+    <script src="js/app.js" defer></script>
 </body>
 </html>

@@ -1,24 +1,76 @@
 {
   "name": "Digital Heritage - Ghana Digital Literacy",
   "short_name": "Digital Heritage",
-  "description": "A mobile-first digital literacy platform using Adinkra symbols for Ghanaian audiences",
+  "description": "Master digital skills through Ghanaian heritage - WhatsApp, Mobile Money & online safety using Adinkra symbols",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "background_color": "#032221",
+  "theme_color": "#00DF81",
+  "categories": ["education", "lifestyle"],
+  "lang": "en-GB",
+  "dir": "ltr",
+  "prefer_related_applications": false,
 
   "icons": [
     {
-      "src": "images/joe_added.png",
+      "src": "images/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "images/joe_added.png",
+      "src": "images/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+
+  "screenshots": [
+    {
+      "src": "images/joe_added.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Digital Heritage Learning App"
+    }
+  ],
+
+  "shortcuts": [
+    {
+      "name": "Continue Learning",
+      "short_name": "Learn",
+      "description": "Continue where you left off",
+      "url": "./#modules",
+      "icons": [
+        {
+          "src": "images/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "My Progress",
+      "short_name": "Progress",
+      "description": "View your learning progress",
+      "url": "./#dashboard",
+      "icons": [
+        {
+          "src": "images/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+
+  "related_applications": [],
+
+  "protocol_handlers": [
+    {
+      "protocol": "web+dh",
+      "url": "/%s"
     }
   ]
 }
