@@ -1,7 +1,13 @@
-// Register service worker
+// Register service worker with better error handling
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js');
+    navigator.serviceWorker.register('./sw.js')
+      .then(registration => {
+        console.log('SW registered:', registration.scope);
+      })
+      .catch(error => {
+        console.error('SW registration failed:', error);
+      });
   });
 }
 
@@ -9,10 +15,133 @@ if ('serviceWorker' in navigator) {
 document.addEventListener('DOMContentLoaded', function() {
   initTheme();
   initNavbar();
+  initAccessibility();
+  initOfflineDetection();
   updateProgress();
   initDashboard();
   startSessionTimer();
+  initAnimations();
+  initVideoPlayers();
+  initModuleCards();
 });
+
+// Initialize module card click handlers
+function initModuleCards() {
+  // Handle module card clicks
+  document.querySelectorAll('.module-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Don't trigger if clicking button
+      if (e.target.tagName === 'BUTTON') return;
+      
+      const moduleName = this.dataset.module;
+      if (moduleName) {
+        startLesson(moduleName);
+      }
+    });
+  });
+  
+  // Handle button clicks specifically
+  document.querySelectorAll('.module-card .btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const moduleName = this.dataset.module;
+      if (moduleName) {
+        startLesson(moduleName);
+      }
+    });
+  });
+}
+
+// Theme toggle functionality - Light/Dark mode
+function initTheme() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateThemeButton(savedTheme);
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeButton(newTheme);
+    });
+  }
+}
+
+function updateThemeButton(theme) {
+  const themeToggle = document.getElementById('theme-toggle');
+  if (!themeToggle) return;
+  
+  const icon = themeToggle.querySelector('i');
+  if (theme === 'dark') {
+    icon.className = 'fas fa-moon';
+    themeToggle.setAttribute('aria-label', 'Switch to light mode');
+  } else {
+    icon.className = 'fas fa-sun';
+    themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+  }
+}
+
+// Initialize entrance animations
+function initAnimations() {
+  // Add animation classes to elements as they come into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  document.querySelectorAll('.module-card, .dashboard-card').forEach(el => {
+    observer.observe(el);
+  });
+  
+  // Initialize video play buttons
+  initVideoPlayers();
+}
+
+// Video player functionality
+function initVideoPlayers() {
+  document.querySelectorAll('.play-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const videoWrapper = this.closest('.video-wrapper');
+      const video = videoWrapper.querySelector('video');
+      
+      if (video.paused) {
+        video.play();
+        this.style.opacity = '0';
+      } else {
+        video.pause();
+        this.style.opacity = '1';
+      }
+    });
+    
+    // Also handle video events
+    const videoWrapper = btn.closest('.video-wrapper');
+    const video = videoWrapper.querySelector('video');
+    
+    video.addEventListener('play', () => {
+      btn.style.opacity = '0';
+      btn.style.pointerEvents = 'none';
+    });
+    
+    video.addEventListener('pause', () => {
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
+    });
+    
+    video.addEventListener('ended', () => {
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
+    });
+  });
+}
 
 // Theme toggle functionality
 function initTheme() {
@@ -746,33 +875,42 @@ const lessonContent = {
 };
 
 function startLesson(symbol) {
+  console.log('Starting lesson:', symbol);
   currentLesson = symbol;
   currentStep = 0;
   quizPassed = false;
 
-  if (lessonContent[symbol]) {
+  if (lessonContent && lessonContent[symbol]) {
     lessonSteps = lessonContent[symbol].steps;
     showLessonModal();
     loadStep(0);
   } else {
-    // Fallback for modules not yet implemented with step-by-step
-    startLegacyLesson(symbol);
+    // Show a notification instead of freezing
+    showNotification('Lesson content loading...', 'info');
+    // Try loading lesson content
+    setTimeout(() => {
+      if (lessonContent && lessonContent[symbol]) {
+        lessonSteps = lessonContent[symbol].steps;
+        showLessonModal();
+        loadStep(0);
+      } else {
+        showNotification('Lesson not available yet. Check back soon!', 'info');
+      }
+    }, 500);
   }
 }
 
+// Make functions globally accessible for onclick handlers
+window.startLesson = startLesson;
+window.showQuiz = showQuiz;
+window.closeLesson = closeLesson;
+window.prevStep = prevStep;
+window.nextStep = nextStep;
+
 function showLessonModal() {
   const modal = document.getElementById('lesson-modal');
-  modal.classList.add('show');
+  modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
-}
-
-function closeLesson() {
-  const modal = document.getElementById('lesson-modal');
-  modal.classList.remove('show');
-  document.body.style.overflow = 'auto';
-  currentLesson = null;
-  currentStep = 0;
-  quizPassed = false;
 }
 
 function loadStep(stepIndex) {
@@ -790,6 +928,12 @@ function loadStep(stepIndex) {
   // Load step content
   lessonBody.innerHTML = step.content;
   lessonBody.style.display = 'block';
+
+  // Show/hide quiz button
+  const takeQuizBtn = document.getElementById('take-quiz-btn');
+  if (takeQuizBtn) {
+    takeQuizBtn.style.display = 'inline-flex';
+  }
 
   // Update navigation buttons
   updateNavigationButtons();
@@ -848,11 +992,15 @@ function showQuiz() {
   const quizSection = document.getElementById('quiz-section');
   const lessonBody = document.getElementById('lesson-body');
   const completeBtn = document.getElementById('complete-lesson');
-
+  const takeQuizBtn = document.getElementById('take-quiz-btn');
+  
   lessonBody.style.display = 'none';
   quizSection.style.display = 'block';
   completeBtn.style.display = 'none';
-
+  if (takeQuizBtn) {
+    takeQuizBtn.style.display = 'none';
+  }
+  
   setupQuiz(currentLesson);
 }
 
@@ -1000,6 +1148,16 @@ function submitQuiz() {
     }
 
     showNotification('Module completed successfully!', 'success');
+    
+    // Add close button to results
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'btn btn-primary';
+    closeBtn.style.marginTop = '16px';
+    closeBtn.innerHTML = '<i class="fas fa-check"></i> Close & Continue';
+    closeBtn.onclick = () => {
+      closeLesson();
+    };
+    resultsDiv.appendChild(closeBtn);
   } else {
     // Add retry button
     const retryBtn = document.createElement('button');
@@ -1042,12 +1200,16 @@ function startLegacyLesson(symbol) {
 function closeLesson() {
   const modal = document.getElementById('lesson-modal');
   if (modal) {
+    modal.style.display = 'none';
     modal.classList.remove('show');
   }
   document.body.style.overflow = 'auto';
   currentLesson = null;
   currentStep = 0;
   quizPassed = false;
+  
+  // Refresh the page to update progress display
+  location.reload();
 }
 
 // Completion certificate function
